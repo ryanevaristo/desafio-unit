@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block conteudo %}
+
+<style>
+    .btn {
+        margin:  15px 0px 10px 0px;
+        float: right;
+    }
+</style>
+
+    <h2>Listagem de todos os Certificados</h2>
+    <a href="{% url 'cadastro' %}" class=" btn btn-primary">Cadastrar Certificado</a>
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <tr>
+                <th>Atividade</th>
+                <th>Certificado</th>
+                <th>Qtde de Horas</th>
+                <th>Status</th>
+                <th>Opções</th>
+            </tr>
+
+            <tr>
+                {% for lista in object_list %}
+                <tr>
+                    <td>{{lista.atividade}}</td>
+                    <td>
+                        <a href="/certificado/{{lista.certificado}}">{{lista.certificado}}</a>
+                    </td>
+                    <td>{{lista.quant_horas}}</td>
+                    {% if lista.status == 'H' %}
+                        <td>Homologado</td>
+                    {% else %}
+                        <td>Não-Homologado</td>
+                    {% endif %}
+                    <td>
+                        <a href="{% url 'excluir' lista.pk %}" class="btn btn-danger btn-sm">excluir</a>
+                        
+                        <a href="{% url 'editar' lista.pk %}" class="btn btn-warning btn-sm " style="margin-right: 5px;">editar</a>
+                        
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <th colspan="5">Nenhum Certificado Registrado</th>
+                </tr>
+
+                {% endfor %}
+            </tr>
+          </table>
+
+    </div>
+    
+
+{% endblock %}

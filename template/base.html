@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<style>
+section{
+  background: white;
+    width: 70%;
+    padding: 2%;
+    border-radius: 10px;
+    margin: auto;
+    box-shadow: 5px 5px 10px rgb(0 0 0 / 37%);
+}
+body{
+  background-color: rgb(6, 6, 78);
+  padding-top: 5%;
+  margin: auto;
+}
+
+
+
+
+</style>
+
+
+<body>
+
+  <section>
+
+    <div>
+      {% block conteudo %}
+      <h1>sem componentes</h1>
+      {% endblock %}
+    </div>
+
+    <div id="imagem">
+      <img src="{% static 'img/unit-logo.png' %}" alt="" style="width: 10%;">
+    </div>
+
+  </section>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

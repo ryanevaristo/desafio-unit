@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block conteudo %}
+
+    <div class="container" style="margin-bottom: 50px;">
+    <p class="lead">
+        Confime para deletar o item
+    </p>
+    <hr>
+    <form action="" method="POST">
+      <p> deletar o certificado: {{object}}</p>
+        {% csrf_token %}
+        {{ form|crispy}}
+        <hr>
+        <button type="submit" class="btn btn-primary">excluir</button>
+    </form>
+    
+    </div>
+{% endblock %}
